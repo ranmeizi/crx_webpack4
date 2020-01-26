@@ -1,5 +1,6 @@
 import React from 'react'
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
+import App from './App.jsx'
 
 const render = Component => {
   ReactDOM.render(
@@ -7,7 +8,4 @@ const render = Component => {
     document.getElementById('root')
   )
 }
-let App = function () {
-  return <div>background</div>
-}
-render(App)
+render(<App />)
