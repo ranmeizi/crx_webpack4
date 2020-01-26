@@ -1,15 +1,20 @@
 process.env.NODE_ENV = 'production';
 
 const chalkAnimation = require('chalk-animation');
+const chalk = require('chalk');
 const shell = require('shelljs');
 const path = require('path');
 const webpack = require('webpack');
-const webpackConfig = require('./webpack.config')
+const fs = require('fs')
+const webpackConfig = require('./webpack.config.js')
 
-const animation = chalkAnimation.rainbow('building for production...');
+const text = fs.readFileSync(path.join(__dirname, 'wenzi.txt')).toString()
+
+const animation = chalkAnimation.rainbow(text);
 animation.start();
 
-const assetsPath = path.join('../dist', 'static');
+const assetsPath = path.join(__dirname, '../dist');
+console.log(assetsPath)
 shell.rm('-rf', assetsPath);
 shell.mkdir('-p', assetsPath);
 shell.config.silent = true;
