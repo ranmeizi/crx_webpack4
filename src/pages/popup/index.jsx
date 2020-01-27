@@ -8,4 +8,4 @@ const render = Component => {
     document.getElementById('root')
   )
 }
-render(<App />)
+render(App)
